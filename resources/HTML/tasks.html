@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tasks</title>
+    <link rel="stylesheet" href="tasksstyles.css">
+</head>
+<body>
+    <h1>Tasks</h1>
+    <table>
+        <thead>
+            <tr>
+                <th class="add-task">+ Add Task</th>
+                <th id="sortByPriority">Priority<span class="filter-icon">&#9660;</span> </th>
+                <th id="sortByDueDate">Due Date<span class="filter-icon">&#9660;</span></th>
+            </tr>
+        </thead>
+        <tbody id="taskTableBody">
+        </tbody>
+    </table>
+
+    <div class="modal" id="taskModal">
+        <button class="modal-close" id="closeModalBtn">&times;</button>
+        <h2>Add Task</h2>
+        <label for="taskTitle">Title:</label>
+        <input type="text" id="taskTitle" placeholder="Task title">
+        <label for="taskDescription">Description:</label>
+        <textarea id="taskDescription" placeholder="Task description"></textarea>
+        <label for="taskPriority">Priority:</label>
+        <select id="taskPriority">
+            <option value="Low">Low</option>
+            <option value="Medium">Medium</option>
+            <option value="High">High</option>
+        </select>
+        <label for="taskDueDate">Due Date:</label>
+        <input type="date" id="taskDueDate">
+        <button class="btn-save" id="saveTaskBtn">Save Task</button>
+        <button class="btn-delete" id="deleteTaskBtn">Delete Task</button>
+    </div>
+
+    <aside class="sidebar" id="sidebar">
+        <h2>Tasks</h2>
+        <div class="sidebar-section">
+            <ul>
+                <li><a href="tasks.html">All Tasks</a></li>
+                <li><a href="today.html">Today</a></li>
+                <li class="active"><a href="index.html">Notes</a></li>
+            </ul>
+        </div>
+    </aside>
+    
+    <script src="tasksscript.js"></script>
+</body>
+</html>
