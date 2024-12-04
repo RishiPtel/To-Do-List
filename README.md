@@ -11,3 +11,6 @@ This is a simple web-based To-Do List application that allows users to create, e
 -Frontend: HTML, CSS, JavaScript
 -Backend: Java (using REST APIs)
 -Database: JavaScript (Local Storage)
+
+
+![image](https://github.com/user-attachments/assets/27357c93-5cbf-4cc9-9d3e-5eee372933f0)
