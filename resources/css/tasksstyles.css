@@ -1,0 +1,175 @@
+body {
+    font-family: Arial, sans-serif;
+    margin-left: 270px; /* Adjusted for sidebar width */
+}
+
+table {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    border: none
+  }
+  
+  table td, #customers th {
+    padding: 8px;
+    cursor: pointer;
+  }
+
+  #sortByPriority:hover, #sortByDueDate:hover {
+    background-color: #d9d9d9; /* Slightly darker background */
+    cursor: pointer; /* Change cursor to pointer */
+}
+
+  table tr:nth-child(odd){background-color: #f2f2f2;}
+
+  table tr:hover {background-color: #ddd;}
+  
+  table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+  }
+  
+  td:first-child,
+  th:first-child {
+    border-radius: 10px 0 0 10px;
+  }
+  td:last-child,
+  th:last-child {
+    border-radius: 0 10px 10px 0;
+  }
+
+.add-task {
+    cursor: pointer;
+    color: blue;
+    text-decoration: underline;
+}
+
+.filter-icon {
+    font-size: 0.8em; /* Adjust size of the filter symbol */
+    margin-left: 5px; /* Add spacing from the header text */
+    color: gray; /* Default color */
+    transition: color 0.2s ease;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    right: -500px;
+    width: 400px;
+    height: 100%;
+    background: #f9f9f9;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+    transition: right 0.3s ease;
+    padding: 20px;
+}
+
+.modal.open {
+    right: 0;
+}
+.modal-close{
+    border: none; /* Removes the border */
+    outline: none; /* Ensures no focus outline appears */
+    background-color: transparent; /* Optional: make the background transparent */
+    font-size: 20px; /* Adjust if necessary */
+    cursor: pointer;
+}
+
+.modal input, .modal textarea, .modal select, .modal button {
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    border: none;
+}
+
+.modal button {
+    cursor: pointer;
+}
+
+.btn-save {
+    background-color: green;
+    color: white;
+    border: none;
+}
+
+.btn-delete {
+    background-color: red;
+    color: white;
+    border: none;
+}
+
+.modal-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: transparent;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+.delete-btn {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+.delete-btn:hover {
+    background-color: darkred;
+}
+
+
+.sidebar {
+    width: 250px;
+    background-color: #333;
+    color: white;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    display: flex; /* Enable flexbox */
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center content horizontally */
+    text-align: center; /* Align text within the items */
+}
+
+.sidebar h2 {
+    text-align: center;
+    margin: 10px 0;
+    font-size: 20px;
+    color: white;
+}
+
+.sidebar .sidebar-section {
+    padding: 10px;
+    flex-grow: 1;
+}
+
+.sidebar .sidebar-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar .sidebar-section ul li {
+    padding: 15px;
+    border-bottom: 1px solid #444;
+    width: 210px;
+}
+
+.sidebar .sidebar-section ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+.sidebar .sidebar-section ul li.active a {
+    font-weight: bold;
+}

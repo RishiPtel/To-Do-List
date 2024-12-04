@@ -1,0 +1,373 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box !important;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    display: table;
+    width: 100%;
+    height: 100%;
+    background-color: #171717;
+    color: #ffffff;
+    line-height: 1.6;
+    position: relative;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+    text-align: center;
+}
+
+.main-content h1 {
+    position: fixed;
+    top: 15px;
+    left: 292px; /* Adjust based on the sidebar width */
+    margin: 0;
+    font-size: 40px;
+    z-index: 10;
+}
+
+.new-note-button {
+    background-color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 50%;
+    position: fixed;
+    top: 55px;
+    left: -580px; /* Adjust for spacing next to the header */
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 10; /* Ensure the button is on top */
+}
+
+/* Animated Lines Styles */
+.lines {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    margin: auto;
+    width: 90vw;
+}
+
+.line {
+    position: absolute;
+    width: 1px;
+    height: 100%;
+    top: 0;
+    left: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+}
+
+.line::after {
+    position: relative;
+    z-index: 0; /* Ensure the button is on top */
+    content: '';
+    display: block;
+    position: absolute;
+    height: 15vh;
+    width: 100%;
+    top: -50%;
+    left: 0;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, #ffffff 75%, #ffffff 100%);
+    animation: drop 7s 0s infinite;
+    animation-fill-mode: forwards;
+    animation-timing-function: cubic-bezier(0.4, 0.26, 0, 0.97);
+}
+
+.line:nth-child(1) {
+    margin-left: -25%;
+}
+
+.line:nth-child(1)::after {
+    animation-delay: 2s;
+}
+
+.line:nth-child(3) {
+    margin-left: 25%;
+}
+
+.line:nth-child(3)::after {
+    animation-delay: 2.5s;
+    
+}
+.line:nth-child(4) {
+    margin-left: 50%;
+}
+
+.line:nth-child(4)::after {
+    animation-delay: 3.5s;
+    
+}
+.line:nth-child(5) {
+    margin-left: -50%;
+}
+
+.line:nth-child(5)::after {
+    animation-delay: 1.5s;
+    
+}
+
+@keyframes drop {
+    0% {
+        top: -50%;
+    }
+    100% {
+        top: 110%;
+    }
+}
+
+/* Existing Note Styles */
+.container {
+    padding: 20px;
+}
+
+.main-content {
+    text-align: center;
+}
+
+.sticky-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+    margin-top: 50px; /* Adjust this value as needed to create space below the header and button */
+    padding: 10px;
+}
+
+.sticky-note {
+    color: black;
+    width: 150px;
+    height: 150px;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgb(255, 255, 255);
+    display: flex;
+    text-align: left;
+    flex-direction: column;
+    justify-content: space-between;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.sticky-note h3 {
+    margin: 0;
+    font-size: 1.2em;
+    text-decoration: underline;
+}
+
+.sticky-note p {
+    margin: 0.5em 0 0;
+}
+
+.sticky-note .note-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    position: relative;
+    z-index: 5; /* Ensure the button is on top */
+}
+
+.sticky-note button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+#note-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    
+}
+
+
+.modal-content {
+    background-color: white;
+    color:rgb(0, 0, 0);
+    padding: 20px;
+    flex-direction: column;
+    align-items: center; /* Center-align the elements */
+    justify-content: space-between;
+    gap: 15px; /* Add spacing between elements */
+    border-radius: 5px;
+    width: 300px;
+    text-align: left;
+    text-align: "Background color" left;
+    position: relative;
+    width: 350px; /* Adjust the width to fit nicely */
+    margin: auto; /* Center the modal horizontally */
+    z-index: 10000; /* Ensure the button is on top */
+}
+.form-group {
+    display: flex;
+    flex-direction: column;
+    width: 100%; /* Make each input field take full width */
+    text-align: left;
+}
+#error-message {
+    color: red;
+    font-size: 0.9em;
+    display: none;
+}
+
+#save-note-button {
+    background-color: #4caf50;
+    color: rgb(0, 0, 0);
+    border: none;
+    padding: 10px 20px;
+    margin-top: 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    text-align: center;
+}
+
+#save-note-button:hover {
+    background-color: #45a049;
+    text-align: center;
+}
+
+label {
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+textarea,
+input[type="color"] {
+    width: 100%; /* Full width for inputs */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+textarea {
+    resize: none; /* Disable resizing for a clean look */
+    height: 100px; /* Adjust height */
+}
+
+#save-note-button {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    justify-content: center;
+}
+
+#save-note-button:hover {
+    background-color: #45a049;
+}
+
+.sticky-note.deleting {
+    animation: fadeOut 0.3s ease-in-out;
+    animation-fill-mode: forwards;
+}
+
+.sticky-note .note-actions {
+    z-index: 5;
+}
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+        transform: scale(1);
+    }
+    to {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+}
+
+
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    min-height: 100vh;
+}
+.sidebar {
+    width: 250px;
+    background-color: #333;
+    color: white;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.sidebar h2 {
+    text-align: center;
+    margin: 10px 0;
+    font-size: 20px;
+    color: white;
+}
+
+.sidebar .sidebar-section {
+    padding: 10px;
+    flex-grow: 1;
+}
+
+.sidebar .sidebar-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar .sidebar-section ul li {
+    padding: 10px;
+    border-bottom: 1px solid #444;
+}
+
+.sidebar .sidebar-section ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+.sidebar .sidebar-section ul li.active a {
+    font-weight: bold;
+}
+
+/* Main content styles */
+.container {
+    margin-left: 250px;
+    padding: 20px;
+    flex-grow: 1;
+}
