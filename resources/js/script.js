@@ -151,3 +151,93 @@ document.addEventListener("DOMContentLoaded", () => {
 window.onload = function() {
     Particles.init({selector: '.background'});
 };
+
+document.addEventListener("DOMContentLoaded", () => {
+    const stickyContainer = document.getElementById("sticky-container");
+
+    function makeNotesSortable() {
+        const notes = document.querySelectorAll(".sticky-note");
+
+        notes.forEach((note) => {
+            note.setAttribute("draggable", true);
+
+            note.addEventListener("dragstart", (e) => {
+                e.dataTransfer.setData("text/plain", e.target.dataset.index);
+                e.target.classList.add("dragging");
+            });
+
+            note.addEventListener("dragend", (e) => {
+                e.target.classList.remove("dragging");
+            });
+        });
+
+        stickyContainer.addEventListener("dragover", (e) => {
+            e.preventDefault();
+            const draggingNote = document.querySelector(".dragging");
+            const afterElement = getDragAfterElement(stickyContainer, e.clientY);
+
+            if (afterElement == null) {
+                stickyContainer.appendChild(draggingNote);
+            } else {
+                stickyContainer.insertBefore(draggingNote, afterElement);
+            }
+        });
+
+        stickyContainer.addEventListener("drop", (e) => {
+            e.preventDefault();
+            const notes = Array.from(stickyContainer.children);
+            const newOrder = notes.map((note) => {
+                return {
+                    title: note.querySelector("h3").textContent,
+                    description: note.querySelector("p").textContent,
+                    color: note.style.backgroundColor,
+                };
+            });
+            localStorage.setItem("notes", JSON.stringify(newOrder));
+        });
+    }
+
+    function getDragAfterElement(container, y) {
+        const draggableElements = [
+            ...container.querySelectorAll(".sticky-note:not(.dragging)"),
+        ];
+
+        return draggableElements.reduce(
+            (closest, child) => {
+                const box = child.getBoundingClientRect();
+                const offset = y - box.top - box.height / 2;
+                if (offset < 0 && offset > closest.offset) {
+                    return { offset: offset, element: child };
+                } else {
+                    return closest;
+                }
+            },
+            { offset: Number.NEGATIVE_INFINITY }
+        ).element;
+    }
+
+    function renderNotes() {
+        stickyContainer.innerHTML = "";
+        const notes = JSON.parse(localStorage.getItem("notes")) || [];
+        notes.forEach((note, index) => {
+            const noteElement = document.createElement("div");
+            noteElement.classList.add("sticky-note");
+            noteElement.style.backgroundColor = note.color;
+            noteElement.dataset.index = index;
+            noteElement.innerHTML = `
+                <h3>${note.title}</h3>
+                <p>${note.description}</p>
+                <div class="note-actions">
+                    <button class="edit-note" data-index="${index}">✏️</button>
+                    <button class="delete-note" data-index="${index}">🗑️</button>
+                </div>
+            `;
+            stickyContainer.appendChild(noteElement);
+        });
+
+        makeNotesSortable();
+    }
+
+    renderNotes();
+});
+//
