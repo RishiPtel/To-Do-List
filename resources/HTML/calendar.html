@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Calendar</title>
+    <link rel="stylesheet" href="calendar.css">
+</head>
+<body>
+    <h1>Weekly Task Calendar</h1>
+    <div class="week-navigation">
+        <button id="prevWeek">Previous Week</button>
+        <input type="date" id="weekSelector">
+        <button id="nextWeek">Next Week</button>
+    </div>
+    <div class="calendar-container">
+        <table class="calendar">
+            <tbody>
+                <tr id="calendarRow">
+                    <!-- Calendar cells will be dynamically generated -->
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <aside class="sidebar" id="sidebar">
+        <h2>Tasks</h2>
+        <div class="sidebar-section">
+            <ul>
+                <li><a href="tasks.html">All Tasks</a></li>
+                <li><a href="calendar.html">Calendar</a></li>
+                <li class="active"><a href="notes.html">Notes</a></li>
+            </ul>
+        </div>
+    </aside>
+    <script src="tasksscript.js"></script>
+    <script src="calendarscipt.js"></script>
+</body>
+</html>
