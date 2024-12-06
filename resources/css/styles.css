@@ -334,7 +334,7 @@ body {
 }
 
 .sidebar h2 {
-    text-align: center;
+    
     margin: 10px 0;
     font-size: 20px;
     color: white;
@@ -370,4 +370,12 @@ body {
     margin-left: 250px;
     padding: 20px;
     flex-grow: 1;
+}
+
+.sticky-note.dragging {
+    opacity: 0.5;
+    border: 2px dashed #000;
+    cursor: grabbing;
+    opacity: 0.8;
+    z-index: 1000;
 }

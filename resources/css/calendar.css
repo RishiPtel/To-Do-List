@@ -1,0 +1,135 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column; /* Updated */
+    align-items: center; /* Center align elements */
+    background-color: #f8f9fa;
+    margin-left: 270px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.week-navigation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+    gap: 10px;
+}
+
+.week-navigation button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.week-navigation button:hover {
+    background-color: #0056b3;
+}
+
+.week-navigation input[type="date"] {
+    padding: 5px;
+    font-size: 14px;
+}
+
+.calendar-container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+.calendar {
+    width: 100%;
+    border-collapse: collapse; /* Updated */
+}
+
+.calendar th, .calendar td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+    vertical-align: top;
+    height: 100px;
+}
+.task-container {
+    margin-top: 10px;
+}
+
+.task {
+    margin: 5px 0;
+    padding: 5px;
+    border-radius: 3px;
+    font-size: 12px;
+}
+
+.priority-high {
+    background-color: red;
+    color: white;
+}
+
+.priority-medium {
+    background-color: orange;
+    color: white;
+}
+
+.priority-low {
+    background-color: green;
+    color: white;
+}
+
+.sidebar {
+    width: 250px;
+    background-color: #333;
+    color: white;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.sidebar h2 {
+    text-align: center;
+    margin: 10px 0;
+    font-size: 20px;
+    color: white;
+}
+
+.sidebar .sidebar-section {
+    padding: 10px;
+    flex-grow: 1;
+}
+
+.sidebar .sidebar-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar .sidebar-section ul li {
+    padding: 15px;
+    border-bottom: 1px solid #444;
+    width: 210px
+}
+
+.sidebar .sidebar-section ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+.sidebar .sidebar-section ul li.active a {
+    font-weight: bold;
+}

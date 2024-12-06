@@ -8,39 +8,38 @@ table {
     border-collapse: collapse;
     width: 100%;
     border: none
-  }
+}
   
-  table td, #customers th {
+table td, #customers th {
     padding: 8px;
     cursor: pointer;
-  }
+}
 
-  #sortByPriority:hover, #sortByDueDate:hover {
+#sortByPriority:hover, #sortByDueDate:hover {
     background-color: #d9d9d9; /* Slightly darker background */
     cursor: pointer; /* Change cursor to pointer */
 }
 
-  table tr:nth-child(odd){background-color: #f2f2f2;}
+table tr:nth-child(odd){background-color: #f2f2f2;}
 
-  table tr:hover {background-color: #ddd;}
+table tr:hover {background-color: #ddd;}
   
-  table th {
+table th {
     padding-top: 12px;
     padding-bottom: 12px;
     text-align: left;
     background-color: #ffffff;
     color: rgb(0, 0, 0);
     cursor: pointer;
-  }
+}
   
-  td:first-child,
-  th:first-child {
+td:first-child, th:first-child {
     border-radius: 10px 0 0 10px;
-  }
+}
   td:last-child,
   th:last-child {
     border-radius: 0 10px 10px 0;
-  }
+}
 
 .add-task {
     cursor: pointer;
